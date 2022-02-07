@@ -1,0 +1,23 @@
+name: 'Napptive Catalog deploy'
+author: 'Napptive'
+description: 'Deploy an application from Napptive Catalog.'
+inputs:
+  appName:
+    description: 'the Application Name'
+    required: true
+  environment:
+    description: 'To specify a target account/environment where the application is going to be deployed'
+    required: false
+  config:
+    description: 'To use a custom YAML file to change the target playground installation'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.appName }}
+    - ${{ inputs.environment }}
+    - ${{ inputs.config }}
+branding:
+  icon: 'play'  
+  color: 'blue'
