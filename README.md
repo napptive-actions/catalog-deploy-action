@@ -2,17 +2,34 @@
 
 This repo contains a github action that allows to deploy an application from Napptive catalog.
 
+## What is Napptive Catalog
+
+Napptive catalog is a catalog of applications ready to be deployed. The applications in the catalog are available to all users of the platform.
+
+## References
+
+* [Catalog documentation](https://docs.napptive.com/Catalog.html)
+* [Catalog repository](https://github.com/napptive/catalog-manager)
+
+## Availabe Applications
+
+You can list available applications executing:
+
+```bash
+playground catalog list
+```
+
 ## Environment variable
 
 ### `PLAYGROUND_PAT`
 
-This environment variable contains a Napptive Personal Access Token. Visit [Napptive documentation](https://docs.napptive.com/guides/Using_personal_access_tokens.html) to know how to create it.
+This environment variable contains a [Napptive Personal Access Token]((https://docs.napptive.com/guides/Using_personal_access_tokens.html)) used to login to the platform.
 
 ## Inputs
 
 ### `appName`
 
-The name of the application to deploy `appName:tag`. This application should be stored in the Napptive catalog. This input is __required__
+With the name of the application to deploy. In Napptive Catalog, the name of the application follows the following convention: *`namespace/appName:tag`*. This input is __required__
 
 ### `environment`
 
