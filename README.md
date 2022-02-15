@@ -35,9 +35,10 @@ With the name of the application to deploy. In Napptive Catalog, the name of the
 
 To specify a target account/environment if proceed. No __required__ input.
 
-### `config`
+### `playgroundConfigFile`
 
 To use a custom YAML file to change the target playground installation. No __required__
+This file contains a playground installation configuration. Visit [napptive documentation](https://docs.napptive.com/playground/On_premise_configuration.html#configuration-file) to know how to create it.
 
 ## Example usage
 
@@ -52,7 +53,7 @@ jobs:
       # Get a copy of the repo.
       - uses: actions/checkout@v2
       # Deploying napptive/drawio:14.3.0 from the catalog
-      - uses: napptive-actions/playground-catalog-deploy@master
+      - uses: napptive-actions/playground-catalog-deploy@v2.2.1
         env:
           PLAYGROUND_PAT: ${{ secrets.PLAYGROUND_PAT }}
         with:
