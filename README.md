@@ -6,6 +6,8 @@ This repo contains a github action that allows to deploy an application from Nap
 
 Napptive catalog is a catalog of applications ready to be deployed. The applications in the catalog are available to all users of the platform.
 
+Napptive playground simplifies the process to depoy and maintenance cloud-native applications. [Get a free account!!](https://playground.napptive.dev/login)
+
 ## References
 
 * [Catalog documentation](https://docs.napptive.com/Catalog.html)
