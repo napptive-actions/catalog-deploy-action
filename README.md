@@ -49,13 +49,13 @@ name: Deploy to Napptive Playground from Catalog
 on: [push]
 jobs:
   deploy:
-    name: Playground deploy
+    name: Catalog deploy
     runs-on: ubuntu-latest
     steps:
       # Get a copy of the repo.
       - uses: actions/checkout@v2
       # Deploying napptive/drawio:14.3.0 from the catalog
-      - uses: napptive-actions/playground-catalog-deploy@v2.2.1
+      - uses: napptive-actions/catalog-deploy-action@v2.2.1
         env:
           PLAYGROUND_PAT: ${{ secrets.PLAYGROUND_PAT }}
         with:
