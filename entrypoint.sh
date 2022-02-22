@@ -22,6 +22,9 @@ if [[ -n "$configFile" ]]; then
     cp ${configFile} ${HOME}/.napptive/.playground.yaml
 fi
 
+# add actual dir to the path to allow execute the playground command
+export PATH=$PATH:/app/
+
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
 /app/playground login --pat
