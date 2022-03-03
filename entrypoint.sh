@@ -13,7 +13,7 @@ configFile=$3
 ## appName cannot be empty
 if [[ -z "$appName" ]]; then
     echo "appName can not be empty"
-    exit -1
+    exit 1
 fi
 
 # if there is a configFile...
@@ -29,7 +29,7 @@ export PATH=$PATH:/app/
 # Login into the platform (with pat flag)
 /app/playground login --pat
 if [[ $? -ne 0 ]]; then
-    exit -1
+    exit 1
 fi
 
 
@@ -37,14 +37,14 @@ fi
 if [[ -n "$environment" ]]; then
     /app/playground env use ${environment}
     if [[ $? -ne 0 ]]; then    
-        exit -1
+        exit 1
     fi
 fi
 echo "deploying ${appName}..."
 # deploy the app
 /app/playground catalog deploy ${appName}
 if [[ $? -ne 0 ]]; then    
-    exit -1
+    exit 1
 fi
 
 # Do not wait until the app will be removed -> if this action is required -> add a new playground action
