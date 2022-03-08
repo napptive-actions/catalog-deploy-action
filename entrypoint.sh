@@ -6,9 +6,10 @@
 ###################################################################
 
 # get args
-appName=$1
-environment=$2
-configFile=$3
+debug=$1
+appName=$2
+environment=$3
+configFile=$4
 
 ## appName cannot be empty
 if [[ -z "$appName" ]]; then
@@ -18,8 +19,15 @@ fi
 
 # if there is a configFile...
 if [[ -n "$configFile" ]]; then
-    mkdir -p ${HOME}/.napptive
-    cp ${configFile} ${HOME}/.napptive/.playground.yaml
+    echo "using custom installation from $configFile "    
+    mkdir -p /napptive
+    cp ${configFile} /napptive/.playground.yaml
+    if [[ $? -ne 0 ]]; then
+      exit 1
+    fi
+    export PLAYGROUND_CONFIG=/napptive/
+    echo "PLAYGROUND_CONFIG env added: $PLAYGROUND_CONFIG"    
+
 fi
 
 # add actual dir to the path to allow execute the playground command
@@ -27,7 +35,7 @@ export PATH=$PATH:/app/
 
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
-/app/playground login --pat
+/app/playground login --pat --debug=$debug 
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
@@ -35,14 +43,14 @@ fi
 
 # if environment!= "" -> use it!
 if [[ -n "$environment" ]]; then
-    /app/playground env use ${environment}
+    /app/playground env use ${environment} --debug=$debug 
     if [[ $? -ne 0 ]]; then    
         exit 1
     fi
 fi
 echo "deploying ${appName}..."
 # deploy the app
-/app/playground catalog deploy ${appName}
+/app/playground catalog deploy ${appName} --debug=$debug 
 if [[ $? -ne 0 ]]; then    
     exit 1
 fi
