@@ -2,6 +2,10 @@ name: 'Napptive Catalog deploy'
 author: 'Napptive'
 description: 'Deploy an application from Napptive Catalog.'
 inputs:
+  debug:
+    description: 'Debug flag in commands'
+    required: false
+    default: false
   appName:
     description: 'the Application Name'
     required: true
@@ -15,6 +19,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.debug }}
     - ${{ inputs.appName }}
     - ${{ inputs.environment }}
     - ${{ inputs.playgroundConfigFile }}
