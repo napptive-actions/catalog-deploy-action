@@ -55,6 +55,3 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-# Do not wait until the app will be removed -> if this action is required -> add a new playground action
-
-
