@@ -55,7 +55,7 @@ jobs:
       # Get a copy of the repo.
       - uses: actions/checkout@v2
       # Deploying napptive/drawio:14.3.0 from the catalog
-      - uses: napptive-actions/catalog-deploy-action@v4.4.0
+      - uses: napptive-actions/catalog-deploy-action@v5.0.0
         env:
           PLAYGROUND_PAT: ${{ secrets.PLAYGROUND_PAT }}
         with:
