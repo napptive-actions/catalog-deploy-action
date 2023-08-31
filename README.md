@@ -1,6 +1,6 @@
 # CATALOG-DEPLOY-ACTION
 
-This repo contains a github action that allows to deploy an application from Napptive catalog.
+This repo contains a GitHub action that allows to deploy an application from Napptive catalog.
 
 Napptive playground simplifies the process to depoy and maintenance cloud-native applications. [Try for free!!](https://playground.napptive.dev/login)
 
@@ -25,7 +25,7 @@ playground catalog list
 
 ### `PLAYGROUND_PAT`
 
-This environment variable contains a [Napptive Personal Access Token]((https://docs.napptive.com/guides/Using_personal_access_tokens.html)) used to login to the platform.
+This environment variable contains a [Napptive Personal Access Token]((https://docs.napptive.com/guides/Using_personal_access_tokens.html)) used to log in to the platform.
 
 ## Inputs
 
@@ -35,7 +35,7 @@ With the name of the application to deploy. In Napptive Catalog, the name of the
 
 ### `environment`
 
-To specify a target account/environment if proceed. No __required__ input.
+To specify a target account/environment if proceeded. No __required__ input.
 
 ### `playgroundConfigFile`
 
@@ -55,7 +55,7 @@ jobs:
       # Get a copy of the repo.
       - uses: actions/checkout@v2
       # Deploying napptive/drawio:14.3.0 from the catalog
-      - uses: napptive-actions/catalog-deploy-action@v6.0.2
+      - uses: napptive-actions/catalog-deploy-action@v6.1.0
         env:
           PLAYGROUND_PAT: ${{ secrets.PLAYGROUND_PAT }}
         with:
